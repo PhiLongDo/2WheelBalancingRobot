@@ -193,13 +193,13 @@ void serialEvent() {
     char inChar = mySerial.read();
     mySerial.println(inChar);
     if (inChar == 't'){
-       mpu.setYGyroOffset(_status+10);
+       setpoint = originalSetpoint-5;
     }
     if (inChar == 'l'){
-       mpu.setYGyroOffset(_status-10);
+       setpoint = originalSetpoint+5;
     }
     if (inChar == 'd'){
-       mpu.setYGyroOffset(_status);
+       setpoint = originalSetpoint;
     }
     Serial.print(mpu.getYGyroOffset());
     mySerial.print(mpu.getYGyroOffset());
